@@ -1,9 +1,12 @@
 import React from "react";
+import Hero from "../components/Hero";
 
 function Save() {
     return (
 
-        <h1>Page: Save</h1>
+        <div>
+            <Hero>This is the hero</Hero>
+        </div>
     )
 }
 
