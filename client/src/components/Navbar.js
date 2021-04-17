@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import "bootstrap/js/src/collapse.js";
 
 function Navbar() {
     return (
@@ -11,10 +11,10 @@ function Navbar() {
             </button>
             <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <ul className="navbar-nav">
-                    <li className="nav-item">
+                    <li className="nav-item" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                         <Link to="/" className={window.location.pathname === "/search" ? "nav-link active" : "nav-link"}>Search</Link>
                     </li>
-                    <li className="nav-item">
+                    <li className="nav-item" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                         <Link to="/saved" className={window.location.pathname === "/saved" ? "nav-link active" : "nav-link"}>Saved</Link>
                     </li>
                 </ul>
@@ -22,7 +22,6 @@ function Navbar() {
         </nav>
     )
 }
-
 
 
 export default Navbar;
