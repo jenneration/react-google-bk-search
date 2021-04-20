@@ -1,10 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import Hero from "../components/Hero";
 import { Container, Row, Col } from "../components/Grid/grid";
 import Input from "../components/Input";
 import Button from "../components/Button";
+import API from "../utils/API";
 
 function Search() {
+    const [searchValue, setSearchValue] = useState("")
+
+    const handleInputChange = e => {
+        const { value } = e.target;
+        setSearchValue(value);
+    };
+
+    const handleFormSubmit = event => {
+        event.preventDefault();
+        API.getbooks(searchValue)
+            .then(data => console.log(data))
+            .catch(error => alert(error));
+    };
+
+
+
+
+
+
     return (
 
         <div>
@@ -17,10 +37,11 @@ function Search() {
                             <Container>
                                 <Row>
                                     <Col size="xs-9 sm-10">
-                                        <Input />
+                                        <Input 
+                                        onChange={handleInputChange}/>
                                     </Col>
                                     <Col size="xs-3 sm-2">
-                                        <Button>Search</Button>
+                                        <Button onClick={handleFormSubmit}>Search</Button>
                                     </Col>
                                 </Row>
                             </Container>
